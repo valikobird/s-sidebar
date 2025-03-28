@@ -51,3 +51,184 @@ ul {
 }
 
 /* ============= PROJECT CSS =============== */
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f5f9;
+
+  .sidebarToggle {
+    position: fixed;
+    top: 2rem;
+    left: 3rem;
+    font-size: 2rem;
+    background-color: transparent;
+    border-color: transparent;
+    /* color: #49a6e9; */
+    color: steelblue;
+    cursor: pointer;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .btn {
+    font-size: 1rem;
+    text-transform: capitalize;
+    background-color: steelblue;
+    color: white;
+    font-weight: 700;
+    border-color: transparent;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ============= Modal =============== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+
+  &.showModal {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+    /* transition-property: opacity;
+    transition-duration: 0.5s; */
+  }
+
+  .modalContainer {
+    background-color: white;
+    width: 90vw;
+    height: 30vh;
+    border-radius: 4px;
+    max-width: 600px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    .closeModalBtn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      background-color: transparent;
+      border-color: transparent;
+      color: #842029;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ============= Sidebar =============== */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  box-shadow: #842029;
+  transition: 0.3s ease-in-out all;
+  transform: translateX(-100%);
+
+  &.showSidebar {
+    transform: translateX(0);
+  }
+
+  .sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    .logo {
+      height: 40px;
+    }
+
+    .closeBtn {
+      font-size: 1.75rem;
+      background-color: transparent;
+      border-color: transparent;
+      color: #842029;
+      cursor: pointer;
+    }
+  }
+
+  .links a {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    padding: 1rem 1.5rem;
+    color: #334155;
+    transition: 0.3s ease-in-out all;
+
+    &:hover {
+      background-color: #f1f5f9;
+      color: steelblue;
+    }
+
+    svg {
+      font-size: 1.5rem;
+      color: #64748b;
+      margin-right: 1rem;
+      transition: 0.3s ease-in-out all;
+
+      &:hover {
+        color: steelblue;
+      }
+    }
+  }
+
+  .socialLinks {
+    display: flex;
+    justify-self: center;
+    padding-bottom: 2rem;
+
+    a {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      color: #64748b;
+      transition: 0.3s ease-in-out all;
+
+      &:hover {
+        color: steelblue;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 676px) {
+  .sidebar {
+    width: 400px;
+  }
+}
